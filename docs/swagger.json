@@ -1,0 +1,1728 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "e-gov server",
+        "title": "e-gov server",
+        "contact": {
+            "name": "grezkl",
+            "url": "http://github.com/grezkl",
+            "email": "grezkl@protonmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:9090",
+    "basePath": "/",
+    "paths": {
+        "/affairPage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "政务管理分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "政务名称",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/applyPage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Apply"
+                ],
+                "summary": "政务申请分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "政务申请名称",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delAffairBatch/": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "删除政务（批量）",
+                "parameters": [
+                    {
+                        "description": "政务编号数组",
+                        "name": "id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delApplyBatch": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Apply"
+                ],
+                "summary": "撤销政务申请（批量）",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "政务申请编号数组",
+                        "name": "ids",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delFeedbackBatch/": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "撤销反馈（批量）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "反馈编号数组",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delFileBatch": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "File"
+                ],
+                "summary": "删除文件（批量）",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "文件编号数组",
+                        "name": "ids",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delMenuBatch/": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "删除菜单（批量）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "菜单编号数组",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delNewsBatch/": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "News"
+                ],
+                "summary": "删除新闻（批量）",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "新闻编号数组",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delRoleBatch/": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Role"
+                ],
+                "summary": "删除角色（批量）",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "角色编号数组",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/delUserBatch": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "根据角色查询用户",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "角色",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "注销用户（批量）",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "用户编号数组",
+                        "name": "ids",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteAffairById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "删除政务（单选）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "政务编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteApplyById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Apply"
+                ],
+                "summary": "撤销政务申请（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "政务申请编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteFeedbackById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "撤销反馈（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "反馈编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteFileById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "File"
+                ],
+                "summary": "删除文件（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "文件编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteMenuById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "删除菜单（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "菜单编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteNewsById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "News"
+                ],
+                "summary": "删除新闻（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "新闻编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteRoleById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Role"
+                ],
+                "summary": "删除角色（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "角色编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/deleteUserById/{id}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "注销用户（单个）",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/downloadFile/:name": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "File"
+                ],
+                "summary": "文件下载",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "文件名称",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/echartsMember": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "获取访问量统计图",
+                "responses": {}
+            }
+        },
+        "/feedbackPage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "反馈分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "反馈名称",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/filePage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "File"
+                ],
+                "summary": "更新文件信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "createdAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "enable",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "md5",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "updatedAt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "url",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "userId",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/getMenuIcons/": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "获取菜单图标",
+                "responses": {}
+            }
+        },
+        "/getRoleMenu/{roleId}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Role"
+                ],
+                "summary": "获取角色菜单",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "角色编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/login": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "账号登录",
+                "parameters": [
+                    {
+                        "description": "账号信息",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UserLoginTemp"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/menuPage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "菜单管理分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "政务申请名称",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/newsPage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "News"
+                ],
+                "summary": "新闻动态分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "新闻名称",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullAffairByAuditId/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "获取审批人员负责的政务",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "审批人员编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullAffairById/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "根据政务编号获取信息",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "政务编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullAffairList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "获取政务列表",
+                "responses": {}
+            }
+        },
+        "/pullAffairPage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "政务办理分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "政务部门",
+                        "name": "department",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "政务主题",
+                        "name": "theme",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullApplyList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Apply"
+                ],
+                "summary": "获取政务申请列表",
+                "responses": {}
+            }
+        },
+        "/pullFeedbackByUserId/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "根据用户编号查询反馈",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullFeedbackList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "获取反馈列表",
+                "responses": {}
+            }
+        },
+        "/pullMenuList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "获取菜单列表",
+                "responses": {}
+            }
+        },
+        "/pullMyApply": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Apply"
+                ],
+                "summary": "获取我的政务分页",
+                "parameters": [
+                    {
+                        "description": "页面规格及关键词",
+                        "name": "page_form",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.PageForm"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullNewsById/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "News"
+                ],
+                "summary": "根据编号获取新闻",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "新闻编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullNewsList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "News"
+                ],
+                "summary": "获取近期新闻",
+                "responses": {}
+            }
+        },
+        "/pullPersonById/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Person"
+                ],
+                "summary": "根据用户编号获取实名信息",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullPersonByIdentity/{idt}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Person"
+                ],
+                "summary": "根据身份证号获取真实信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "身份证号",
+                        "name": "idt",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullRoleList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Role"
+                ],
+                "summary": "获取角色列表",
+                "responses": {}
+            }
+        },
+        "/pullUserById/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "根据编号查找政务申请",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "政务申请编号",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/pullUserList": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "获取用户列表",
+                "responses": {}
+            }
+        },
+        "/register": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "账号注册",
+                "parameters": [
+                    {
+                        "description": "账号信息",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.UserRegisterTemp"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/rolePage": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Role"
+                ],
+                "summary": "角色管理分页",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "页数",
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页大小",
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "角色名称",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/saveAffair": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "政务内容保存",
+                "parameters": [
+                    {
+                        "description": "政务内容",
+                        "name": "affair",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Affair"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/saveApply": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Apply"
+                ],
+                "summary": "政务申请办理",
+                "parameters": [
+                    {
+                        "description": "政务申请",
+                        "name": "apply",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Apply"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/saveFeedback": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "反馈提交",
+                "parameters": [
+                    {
+                        "description": "反馈内容",
+                        "name": "feedback",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Feedback"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/saveMenu": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "保存菜单内容",
+                "parameters": [
+                    {
+                        "description": "菜单内容",
+                        "name": "menu",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Menu"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/savePerson": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Person"
+                ],
+                "summary": "保存实名信息",
+                "parameters": [
+                    {
+                        "description": "保存实名信息",
+                        "name": "person",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Person"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/saveRole": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Role"
+                ],
+                "summary": "保存角色内容",
+                "parameters": [
+                    {
+                        "description": "角色内容",
+                        "name": "role",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Role"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/saveUser": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "保存账号信息",
+                "parameters": [
+                    {
+                        "description": "保存账号信息",
+                        "name": "user_form",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.User"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/updateAffair": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Affair"
+                ],
+                "summary": "政务内容更新",
+                "parameters": [
+                    {
+                        "description": "政务内容",
+                        "name": "affair",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Affair"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/updateNews": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "News"
+                ],
+                "summary": "保存新闻内容",
+                "parameters": [
+                    {
+                        "description": "新闻内容",
+                        "name": "news",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.News"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/updatePWD": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "修改密码",
+                "parameters": [
+                    {
+                        "description": "账号",
+                        "name": "username",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "密码",
+                        "name": "password",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/uploadFile": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "File"
+                ],
+                "summary": "文件上传",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "文件",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/userExport": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "导出用户数据",
+                "responses": {}
+            }
+        },
+        "/userImport": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "导入用户数据",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "文件",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/username/:name": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Account"
+                ],
+                "summary": "获取用户信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "账号",
+                        "name": "username",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "gorm.DeletedAt": {
+            "type": "object",
+            "properties": {
+                "time": {
+                    "type": "string"
+                },
+                "valid": {
+                    "description": "Valid is true if Time is not NULL",
+                    "type": "boolean"
+                }
+            }
+        },
+        "model.Affair": {
+            "type": "object",
+            "properties": {
+                "auditId": {
+                    "type": "integer"
+                },
+                "cost": {
+                    "type": "number"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "$ref": "#/definitions/gorm.DeletedAt"
+                },
+                "department": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "boolean"
+                },
+                "theme": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Apply": {
+            "type": "object",
+            "properties": {
+                "access": {
+                    "type": "string"
+                },
+                "affairsId": {
+                    "type": "integer"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "$ref": "#/definitions/gorm.DeletedAt"
+                },
+                "fileUrl": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "personId": {
+                    "type": "integer"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.Feedback": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "$ref": "#/definitions/gorm.DeletedAt"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "replyContent": {
+                    "type": "string"
+                },
+                "responder": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.Menu": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Menu"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "icon": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "pagePath": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "pid": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.News": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "$ref": "#/definitions/gorm.DeletedAt"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.PageForm": {
+            "type": "object",
+            "required": [
+                "pageNum",
+                "pageSize"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "pageNum": {
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.Person": {
+            "type": "object",
+            "required": [
+                "address",
+                "age",
+                "birthday",
+                "hometown",
+                "identity",
+                "name",
+                "sex",
+                "userId"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "string"
+                },
+                "hometown": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "identity": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "sex": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.Role": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "flag": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.User": {
+            "type": "object",
+            "required": [
+                "username"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "deletedAt": {
+                    "$ref": "#/definitions/gorm.DeletedAt"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "nickname": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "personId": {
+                    "type": "integer"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string",
+                    "default": "ROLE_USER"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.UserLoginTemp": {
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ],
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.UserRegisterTemp": {
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ],
+            "properties": {
+                "nickname": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

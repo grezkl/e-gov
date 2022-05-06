@@ -1,0 +1,120 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /login                    --> e-gov/router/account.login.func1 (3 handlers)
+[GIN-debug] POST   /register                 --> e-gov/router/account.register.func1 (3 handlers)
+[GIN-debug] POST   /updatePWD                --> e-gov/router/account.updatePWD.func1 (3 handlers)
+[GIN-debug] GET    /username/:name           --> e-gov/router/account.username.func1 (3 handlers)
+[GIN-debug] GET    /userPage                 --> e-gov/router/account.userPage.func1 (3 handlers)
+[GIN-debug] GET    /pullUserList             --> e-gov/router/account.pullUserList.func1 (3 handlers)
+[GIN-debug] GET    /pullUserById/:id         --> e-gov/router/account.pullUserById.func1 (3 handlers)
+[GIN-debug] GET    /pullUserByRole/:role     --> e-gov/router/account.pullUserByRole.func1 (3 handlers)
+[GIN-debug] POST   /saveUser                 --> e-gov/router/account.saveUser.func1 (4 handlers)
+[GIN-debug] DELETE /deleteUserById/:id       --> e-gov/router/account.deleteUserById.func1 (4 handlers)
+[GIN-debug] DELETE /delUserBatch             --> e-gov/router/account.delUserBatch.func1 (4 handlers)
+[GIN-debug] GET    /echartsMember            --> e-gov/router/account.echartsMember.func1 (3 handlers)
+[GIN-debug] GET    /rolePage                 --> e-gov/router/role.rolePage.func1 (3 handlers)
+[GIN-debug] GET    /pullRoleList             --> e-gov/router/role.pullRoleList.func1 (3 handlers)
+[GIN-debug] GET    /pullRoleById/:id         --> e-gov/router/role.pullRoleById.func1 (3 handlers)
+[GIN-debug] POST   /saveRole                 --> e-gov/router/role.saveRole.func1 (4 handlers)
+[GIN-debug] DELETE /deleteRoleById/:id       --> e-gov/router/role.deleteRoleById.func1 (4 handlers)
+[GIN-debug] DELETE /delRoleBatch             --> e-gov/router/role.delRoleBatch.func1 (4 handlers)
+[GIN-debug] GET    /getRoleMenu/:roleId      --> e-gov/router/role.getRoleMenu.func1 (3 handlers)
+[GIN-debug] GET    /menuPage                 --> e-gov/router/menu.menuPage.func1 (3 handlers)
+[GIN-debug] GET    /pullMenuList             --> e-gov/router/menu.pullMenuList.func1 (3 handlers)
+[GIN-debug] GET    /pullMenuById/:id         --> e-gov/router/menu.pullMenuById.func1 (3 handlers)
+[GIN-debug] POST   /saveMenu                 --> e-gov/router/menu.saveMenu.func1 (4 handlers)
+[GIN-debug] DELETE /deleteMenuById/:id       --> e-gov/router/menu.deleteMenuById.func1 (4 handlers)
+[GIN-debug] DELETE /delMenuBatch             --> e-gov/router/menu.delMenuBatch.func1 (4 handlers)
+[GIN-debug] GET    /getMenuIcons             --> e-gov/router/menu.getMenuIcons.func1 (3 handlers)
+[GIN-debug] GET    /filePage                 --> e-gov/router/file.filePage.func1 (3 handlers)
+[GIN-debug] DELETE /deleteFileById/:id       --> e-gov/router/file.deleteFileById.func1 (3 handlers)
+[GIN-debug] DELETE /delFileBatch             --> e-gov/router/file.delFileBatch.func1 (3 handlers)
+[GIN-debug] POST   /updateFile               --> e-gov/router/file.updateFile.func1 (3 handlers)
+[GIN-debug] POST   /uploadFile               --> e-gov/router/file.uploadFile.func1 (4 handlers)
+[GIN-debug] GET    /downloadFile/:name       --> e-gov/router/file.downloadFile.func1 (3 handlers)
+[GIN-debug] GET    /affairPage               --> e-gov/router/affair.affairPage.func1 (3 handlers)
+[GIN-debug] GET    /pullAffairList           --> e-gov/router/affair.pullAffairList.func1 (3 handlers)
+[GIN-debug] GET    /pullAffairById/:id       --> e-gov/router/affair.pullAffairById.func1 (3 handlers)
+[GIN-debug] GET    /pullAffairByAuditId/:id  --> e-gov/router/affair.pullAffairByAuditId.func1 (3 handlers)
+[GIN-debug] GET    /pullAffairPage           --> e-gov/router/affair.pullAffairPage.func1 (3 handlers)
+[GIN-debug] POST   /saveAffair               --> e-gov/router/affair.saveAffair.func1 (4 handlers)
+[GIN-debug] DELETE /deleteAffairById/:id     --> e-gov/router/affair.deleteAffairById.func1 (4 handlers)
+[GIN-debug] POST   /delAffairBatch           --> e-gov/router/affair.delAffairBatch.func1 (4 handlers)
+[GIN-debug] GET    /pullPersonById/:id       --> e-gov/router/person.pullPersonById.func1 (3 handlers)
+[GIN-debug] GET    /pullPersonByIdentity/:idt --> e-gov/router/person.pullPersonByIdentity.func1 (3 handlers)
+[GIN-debug] POST   /savePerson               --> e-gov/router/person.savePerson.func1 (4 handlers)
+[GIN-debug] GET    /applyPage                --> e-gov/router/apply.applyPage.func1 (3 handlers)
+[GIN-debug] GET    /pullApplyList            --> e-gov/router/apply.pullApplyList.func1 (3 handlers)
+[GIN-debug] GET    /pullApplyById/:id        --> e-gov/router/apply.pullApplyById.func1 (3 handlers)
+[GIN-debug] GET    /pullMyApply              --> e-gov/router/apply.pullMyApply.func1 (3 handlers)
+[GIN-debug] POST   /saveApply                --> e-gov/router/apply.saveApply.func1 (4 handlers)
+[GIN-debug] DELETE /deleteApplyById/:id      --> e-gov/router/apply.deleteApplyById.func1 (4 handlers)
+[GIN-debug] DELETE /delApplyBatch            --> e-gov/router/apply.delApplyBatch.func1 (4 handlers)
+[GIN-debug] GET    /newsPage                 --> e-gov/router/news.newsPage.func1 (3 handlers)
+[GIN-debug] GET    /pullNewsList             --> e-gov/router/news.pullNewsList.func1 (3 handlers)
+[GIN-debug] GET    /pullNewsRecent           --> e-gov/router/news.pullNewsRecent.func1 (3 handlers)
+[GIN-debug] GET    /pullNewsById/:id         --> e-gov/router/news.pullNewsById.func1 (3 handlers)
+[GIN-debug] POST   /saveNews                 --> e-gov/router/news.updateNews.func1 (4 handlers)
+[GIN-debug] DELETE /deleteNewsById/:id       --> e-gov/router/news.deleteNewsById.func1 (4 handlers)
+[GIN-debug] DELETE /delNewsBatch             --> e-gov/router/news.delNewsBatch.func1 (4 handlers)
+[GIN-debug] GET    /feedbackPage             --> e-gov/router/feedback.feedbackPage.func1 (3 handlers)
+[GIN-debug] GET    /pullFeedbackList         --> e-gov/router/feedback.pullFeedbackList.func1 (3 handlers)
+[GIN-debug] GET    /pullFeedbackByUserId/:id --> e-gov/router/feedback.pullFeedbackByUserId.func1 (3 handlers)
+[GIN-debug] POST   /saveFeedback             --> e-gov/router/feedback.saveFeedback.func1 (4 handlers)
+[GIN-debug] DELETE /deleteFeedbackById/:id   --> e-gov/router/feedback.deleteFeedbackById.func1 (4 handlers)
+[GIN-debug] DELETE /deleteFeedbackByUserId/:id --> e-gov/router/feedback.deleteFeedbackByUserId.func1 (4 handlers)
+[GIN-debug] DELETE /delFeedbackBatch         --> e-gov/router/feedback.delFeedbackBatch.func1 (4 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on localhost:9090
+[GIN] 2022/05/06 - 14:15:15 | 200 |     234.861µs |       127.0.0.1 | GET      "/swagger/index.html"
+[GIN] 2022/05/06 - 14:15:15 | 200 |      169.95µs |       127.0.0.1 | GET      "/swagger/swagger-ui.css"
+[GIN] 2022/05/06 - 14:15:15 | 200 |     773.732µs |       127.0.0.1 | GET      "/swagger/swagger-ui-bundle.js"
+[GIN] 2022/05/06 - 14:15:15 | 200 |     254.489µs |       127.0.0.1 | GET      "/swagger/swagger-ui-standalone-preset.js"
+[GIN] 2022/05/06 - 14:15:16 | 200 |      38.141µs |       127.0.0.1 | GET      "/swagger/favicon-32x32.png"
+[GIN] 2022/05/06 - 14:15:16 | 200 |     277.875µs |       127.0.0.1 | GET      "/swagger/doc.json"
+[GIN] 2022/05/06 - 14:15:45 | 200 |     845.104µs |       127.0.0.1 | GET      "/pullPersonByIdentity/450xxx20001126xxxx"
+[GIN] 2022/05/06 - 14:15:57 | 200 |     945.843µs |       127.0.0.1 | GET      "/username/root"
+[GIN] 2022/05/06 - 14:15:57 | 200 |     629.878µs |       127.0.0.1 | GET      "/pullPersonById/3"
+[GIN] 2022/05/06 - 14:19:57 | 200 |     1.22408ms |       127.0.0.1 | GET      "/pullAffairPage?pageNum=1&pageSize=7&department=%E6%95%99%E8%82%B2%E9%83%A8&theme=%E6%95%99%E8%82%B2%E7%A7%91%E7%A0%94"
+[GIN] 2022/05/06 - 14:19:58 | 200 |    1.344948ms |       127.0.0.1 | GET      "/pullMyApply?pageNum=1&pageSize=5&name="
+[GIN] 2022/05/06 - 14:19:59 | 200 |     799.359µs |       127.0.0.1 | GET      "/pullFeedbackByUserId/1"
+[GIN] 2022/05/06 - 14:19:59 | 200 |    1.877872ms |       127.0.0.1 | GET      "/downloadFile/f6546cec-c921-4259-acd2-0571ecf5d6f5.jpg"
+[GIN] 2022/05/06 - 14:19:59 | 200 |     926.133µs |       127.0.0.1 | GET      "/downloadFile/17b73d07-e066-4bf9-b87c-31fa8f857ccc.png"
+[GIN] 2022/05/06 - 14:19:59 | 200 |    1.433677ms |       127.0.0.1 | GET      "/downloadFile/cd9c87e7-e0a3-43a2-bb59-7d2f055d8600.png"
+[GIN] 2022/05/06 - 14:19:59 | 200 |     282.542µs |       127.0.0.1 | GET      "/downloadFile/691a23bf-e487-4c6c-942e-1cb11b89b1ca.png"
+[GIN] 2022/05/06 - 14:19:59 | 200 |    1.202351ms |       127.0.0.1 | GET      "/newsPage?pageNum=1&pageSize=7"
+[GIN] 2022/05/06 - 14:19:59 | 200 |     434.768µs |       127.0.0.1 | GET      "/pullNewsRecent"
+[GIN] 2022/05/06 - 14:19:59 | 404 |       3.329µs |       127.0.0.1 | GET      "/file/download/07daaf733c254a65be5d1de3e67c1746.jpg"
+[GIN] 2022/05/06 - 14:19:59 | 404 |        2.76µs |       127.0.0.1 | GET      "/file/download/18afb8b66258471986db9ea58d0df6cc.jpg"
+[GIN] 2022/05/06 - 14:19:59 | 200 |      48.974µs |       127.0.0.1 | GET      "/downloadFile/1e70a1ac-e5e4-4e29-a44c-1537c2301e9bdina.png"
+[GIN] 2022/05/06 - 14:20:04 | 200 |     611.713µs |       127.0.0.1 | GET      "/username/root"
+[GIN] 2022/05/06 - 14:20:04 | 200 |      24.677µs |       127.0.0.1 | GET      "/echartsMember"
+[GIN] 2022/05/06 - 14:20:05 | 200 |     869.918µs |       127.0.0.1 | GET      "/userPage?pageNum=1&pageSize=7&username=&email=&address="
+[GIN] 2022/05/06 - 14:20:05 | 200 |     652.004µs |       127.0.0.1 | GET      "/pullRoleList"
+[GIN] 2022/05/06 - 14:20:06 | 200 |     870.531µs |       127.0.0.1 | GET      "/filePage?pageNum=1&pageSize=5&name="
+[GIN] 2022/05/06 - 14:20:07 | 200 |      601.49µs |       127.0.0.1 | GET      "/rolePage?pageNum=1&pageSize=5&name="
+[GIN] 2022/05/06 - 14:20:07 | 200 |     377.416µs |       127.0.0.1 | GET      "/pullRoleList"
+[GIN] 2022/05/06 - 14:20:07 | 200 |     638.924µs |       127.0.0.1 | GET      "/pullMenuList?name="
+[GIN] 2022/05/06 - 14:20:07 | 200 |     514.588µs |       127.0.0.1 | GET      "/getMenuIcons"
+[GIN] 2022/05/06 - 14:20:09 | 200 |      956.03µs |       127.0.0.1 | GET      "/applyPage?pageNum=1&pageSize=5&affairsId="
+[GIN] 2022/05/06 - 14:20:09 | 200 |      905.04µs |       127.0.0.1 | GET      "/pullAffairPage?pageNum=1&pageSize=7&department=%E6%95%99%E8%82%B2%E9%83%A8&theme=%E6%95%99%E8%82%B2%E7%A7%91%E7%A0%94"
+[GIN] 2022/05/06 - 14:20:10 | 200 |     521.782µs |       127.0.0.1 | GET      "/pullUserByRole/ROLE_AUDITOR"
+[GIN] 2022/05/06 - 14:20:10 | 200 |    1.140677ms |       127.0.0.1 | GET      "/affairPage?pageNum=1&pageSize=5&name="
+[GIN] 2022/05/06 - 14:20:12 | 200 |     667.579µs |       127.0.0.1 | GET      "/newsPage?pageNum=1&pageSize=5&title="
+[GIN] 2022/05/06 - 14:20:12 | 404 |        1.59µs |       127.0.0.1 | GET      "/file/download/07daaf733c254a65be5d1de3e67c1746.jpg"
+[GIN] 2022/05/06 - 14:20:12 | 404 |       1.666µs |       127.0.0.1 | GET      "/file/download/18afb8b66258471986db9ea58d0df6cc.jpg"
+[GIN] 2022/05/06 - 14:20:12 | 200 |      41.356µs |       127.0.0.1 | GET      "/downloadFile/1e70a1ac-e5e4-4e29-a44c-1537c2301e9bdina.png"
+[GIN] 2022/05/06 - 14:20:14 | 200 |     552.238µs |       127.0.0.1 | GET      "/pullFeedbackByUserId/1"
+[GIN] 2022/05/06 - 14:20:15 | 200 |     1.02189ms |       127.0.0.1 | GET      "/feedbackPage?pageNum=1&pageSize=5&feedbackId="

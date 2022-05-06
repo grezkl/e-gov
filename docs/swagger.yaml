@@ -1,0 +1,1147 @@
+basePath: /
+definitions:
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  model.Affair:
+    properties:
+      auditId:
+        type: integer
+      cost:
+        type: number
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      department:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      state:
+        type: boolean
+      theme:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  model.Apply:
+    properties:
+      access:
+        type: string
+      affairsId:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      fileUrl:
+        type: string
+      id:
+        type: integer
+      personId:
+        type: integer
+      updatedAt:
+        type: string
+      userId:
+        type: integer
+    type: object
+  model.Feedback:
+    properties:
+      content:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      description:
+        type: string
+      id:
+        type: integer
+      replyContent:
+        type: string
+      responder:
+        type: string
+      state:
+        type: boolean
+      type:
+        type: string
+      updatedAt:
+        type: string
+      userId:
+        type: integer
+    type: object
+  model.Menu:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/model.Menu'
+        type: array
+      description:
+        type: string
+      icon:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      pagePath:
+        type: string
+      path:
+        type: string
+      pid:
+        type: string
+    type: object
+  model.News:
+    properties:
+      author:
+        type: string
+      content:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      description:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      title:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  model.PageForm:
+    properties:
+      name:
+        type: string
+      pageNum:
+        type: integer
+      pageSize:
+        type: integer
+    required:
+    - pageNum
+    - pageSize
+    type: object
+  model.Person:
+    properties:
+      address:
+        type: string
+      age:
+        type: string
+      birthday:
+        type: string
+      hometown:
+        type: string
+      id:
+        type: integer
+      identity:
+        type: string
+      name:
+        type: string
+      sex:
+        type: string
+      userId:
+        type: integer
+    required:
+    - address
+    - age
+    - birthday
+    - hometown
+    - identity
+    - name
+    - sex
+    - userId
+    type: object
+  model.Role:
+    properties:
+      description:
+        type: string
+      flag:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  model.User:
+    properties:
+      address:
+        type: string
+      avatarUrl:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      email:
+        type: string
+      id:
+        type: integer
+      nickname:
+        type: string
+      password:
+        type: string
+      personId:
+        type: integer
+      phone:
+        type: string
+      role:
+        default: ROLE_USER
+        type: string
+      updatedAt:
+        type: string
+      username:
+        type: string
+    required:
+    - username
+    type: object
+  model.UserLoginTemp:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  model.UserRegisterTemp:
+    properties:
+      nickname:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+host: localhost:9090
+info:
+  contact:
+    email: grezkl@protonmail.com
+    name: grezkl
+    url: http://github.com/grezkl
+  description: e-gov server
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: e-gov server
+  version: "1.0"
+paths:
+  /affairPage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 政务名称
+        in: query
+        name: name
+        type: string
+      responses: {}
+      summary: 政务管理分页
+      tags:
+      - Affair
+  /applyPage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 政务申请名称
+        in: query
+        name: name
+        type: string
+      responses: {}
+      summary: 政务申请分页
+      tags:
+      - Apply
+  /delAffairBatch/:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务编号数组
+        in: body
+        name: id
+        required: true
+        schema:
+          items:
+            type: integer
+          type: array
+      responses: {}
+      summary: 删除政务（批量）
+      tags:
+      - Affair
+  /delApplyBatch:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务申请编号数组
+        in: path
+        items:
+          type: integer
+        name: ids
+        required: true
+        type: array
+      responses: {}
+      summary: 撤销政务申请（批量）
+      tags:
+      - Apply
+  /delFeedbackBatch/:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 反馈编号数组
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 撤销反馈（批量）
+      tags:
+      - Feedback
+  /delFileBatch:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 文件编号数组
+        in: path
+        items:
+          type: integer
+        name: ids
+        required: true
+        type: array
+      responses: {}
+      summary: 删除文件（批量）
+      tags:
+      - File
+  /delMenuBatch/:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 菜单编号数组
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 删除菜单（批量）
+      tags:
+      - Menu
+  /delNewsBatch/:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 新闻编号数组
+        in: path
+        items:
+          type: integer
+        name: id
+        required: true
+        type: array
+      responses: {}
+      summary: 删除新闻（批量）
+      tags:
+      - News
+  /delRoleBatch/:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 角色编号数组
+        in: path
+        items:
+          type: integer
+        name: id
+        required: true
+        type: array
+      responses: {}
+      summary: 删除角色（批量）
+      tags:
+      - Role
+  /delUserBatch:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用户编号数组
+        in: path
+        items:
+          type: integer
+        name: ids
+        required: true
+        type: array
+      responses: {}
+      summary: 注销用户（批量）
+      tags:
+      - Account
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 角色
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 根据角色查询用户
+      tags:
+      - Account
+  /deleteAffairById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 删除政务（单选）
+      tags:
+      - Affair
+  /deleteApplyById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务申请编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 撤销政务申请（单个）
+      tags:
+      - Apply
+  /deleteFeedbackById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 反馈编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 撤销反馈（单个）
+      tags:
+      - Feedback
+  /deleteFileById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 文件编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 删除文件（单个）
+      tags:
+      - File
+  /deleteMenuById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 菜单编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 删除菜单（单个）
+      tags:
+      - Menu
+  /deleteNewsById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 新闻编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 删除新闻（单个）
+      tags:
+      - News
+  /deleteRoleById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 角色编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 删除角色（单个）
+      tags:
+      - Role
+  /deleteUserById/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用户编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 注销用户（单个）
+      tags:
+      - Account
+  /downloadFile/:name:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 文件名称
+        in: path
+        name: name
+        required: true
+        type: integer
+      responses: {}
+      summary: 文件下载
+      tags:
+      - File
+  /echartsMember:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取访问量统计图
+      tags:
+      - Account
+  /feedbackPage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 反馈名称
+        in: query
+        name: name
+        type: string
+      responses: {}
+      summary: 反馈分页
+      tags:
+      - Feedback
+  /filePage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: createdAt
+        type: string
+      - in: query
+        name: enable
+        type: boolean
+      - in: query
+        name: id
+        type: integer
+      - in: query
+        name: md5
+        type: string
+      - in: query
+        name: name
+        type: string
+      - in: query
+        name: size
+        type: integer
+      - in: query
+        name: type
+        type: string
+      - in: query
+        name: updatedAt
+        type: string
+      - in: query
+        name: url
+        type: string
+      - in: query
+        name: userId
+        type: integer
+      responses: {}
+      summary: 更新文件信息
+      tags:
+      - File
+  /getMenuIcons/:
+    delete:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取菜单图标
+      tags:
+      - Menu
+  /getRoleMenu/{roleId}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 角色编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 获取角色菜单
+      tags:
+      - Role
+  /login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 账号信息
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserLoginTemp'
+      responses: {}
+      summary: 账号登录
+      tags:
+      - Account
+  /menuPage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 政务申请名称
+        in: query
+        name: name
+        type: string
+      responses: {}
+      summary: 菜单管理分页
+      tags:
+      - Menu
+  /newsPage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 新闻名称
+        in: query
+        name: name
+        type: string
+      responses: {}
+      summary: 新闻动态分页
+      tags:
+      - News
+  /pullAffairByAuditId/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 审批人员编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 获取审批人员负责的政务
+      tags:
+      - Affair
+  /pullAffairById/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 根据政务编号获取信息
+      tags:
+      - Affair
+  /pullAffairList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取政务列表
+      tags:
+      - Affair
+  /pullAffairPage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 政务部门
+        in: query
+        name: department
+        type: string
+      - description: 政务主题
+        in: query
+        name: theme
+        type: string
+      responses: {}
+      summary: 政务办理分页
+      tags:
+      - Affair
+  /pullApplyList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取政务申请列表
+      tags:
+      - Apply
+  /pullFeedbackByUserId/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用户编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 根据用户编号查询反馈
+      tags:
+      - Feedback
+  /pullFeedbackList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取反馈列表
+      tags:
+      - Feedback
+  /pullMenuList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取菜单列表
+      tags:
+      - Menu
+  /pullMyApply:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页面规格及关键词
+        in: body
+        name: page_form
+        required: true
+        schema:
+          $ref: '#/definitions/model.PageForm'
+      responses: {}
+      summary: 获取我的政务分页
+      tags:
+      - Apply
+  /pullNewsById/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 新闻编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 根据编号获取新闻
+      tags:
+      - News
+  /pullNewsList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取近期新闻
+      tags:
+      - News
+  /pullPersonById/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用户编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 根据用户编号获取实名信息
+      tags:
+      - Person
+  /pullPersonByIdentity/{idt}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 身份证号
+        in: path
+        name: idt
+        required: true
+        type: string
+      responses: {}
+      summary: 根据身份证号获取真实信息
+      tags:
+      - Person
+  /pullRoleList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取角色列表
+      tags:
+      - Role
+  /pullUserById/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务申请编号
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+      summary: 根据编号查找政务申请
+      tags:
+      - Account
+  /pullUserList:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 获取用户列表
+      tags:
+      - Account
+  /register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 账号信息
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserRegisterTemp'
+      responses: {}
+      summary: 账号注册
+      tags:
+      - Account
+  /rolePage:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 页数
+        in: query
+        name: pageNum
+        required: true
+        type: integer
+      - description: 页大小
+        in: query
+        name: pageSize
+        required: true
+        type: integer
+      - description: 角色名称
+        in: query
+        name: name
+        type: string
+      responses: {}
+      summary: 角色管理分页
+      tags:
+      - Role
+  /saveAffair:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务内容
+        in: body
+        name: affair
+        required: true
+        schema:
+          $ref: '#/definitions/model.Affair'
+      responses: {}
+      summary: 政务内容保存
+      tags:
+      - Affair
+  /saveApply:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务申请
+        in: body
+        name: apply
+        required: true
+        schema:
+          $ref: '#/definitions/model.Apply'
+      responses: {}
+      summary: 政务申请办理
+      tags:
+      - Apply
+  /saveFeedback:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 反馈内容
+        in: body
+        name: feedback
+        required: true
+        schema:
+          $ref: '#/definitions/model.Feedback'
+      responses: {}
+      summary: 反馈提交
+      tags:
+      - Feedback
+  /saveMenu:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 菜单内容
+        in: body
+        name: menu
+        required: true
+        schema:
+          $ref: '#/definitions/model.Menu'
+      responses: {}
+      summary: 保存菜单内容
+      tags:
+      - Menu
+  /savePerson:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 保存实名信息
+        in: body
+        name: person
+        required: true
+        schema:
+          $ref: '#/definitions/model.Person'
+      responses: {}
+      summary: 保存实名信息
+      tags:
+      - Person
+  /saveRole:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 角色内容
+        in: body
+        name: role
+        required: true
+        schema:
+          $ref: '#/definitions/model.Role'
+      responses: {}
+      summary: 保存角色内容
+      tags:
+      - Role
+  /saveUser:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 保存账号信息
+        in: body
+        name: user_form
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      responses: {}
+      summary: 保存账号信息
+      tags:
+      - Account
+  /updateAffair:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 政务内容
+        in: body
+        name: affair
+        required: true
+        schema:
+          $ref: '#/definitions/model.Affair'
+      responses: {}
+      summary: 政务内容更新
+      tags:
+      - Affair
+  /updateNews:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 新闻内容
+        in: body
+        name: news
+        required: true
+        schema:
+          $ref: '#/definitions/model.News'
+      responses: {}
+      summary: 保存新闻内容
+      tags:
+      - News
+  /updatePWD:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 账号
+        in: body
+        name: username
+        required: true
+        schema:
+          type: string
+      - description: 密码
+        in: body
+        name: password
+        required: true
+        schema:
+          type: string
+      responses: {}
+      summary: 修改密码
+      tags:
+      - Account
+  /uploadFile:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses: {}
+      summary: 文件上传
+      tags:
+      - File
+  /userExport:
+    get:
+      consumes:
+      - application/json
+      responses: {}
+      summary: 导出用户数据
+      tags:
+      - Account
+  /userImport:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses: {}
+      summary: 导入用户数据
+      tags:
+      - Account
+  /username/:name:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 账号
+        in: path
+        name: username
+        required: true
+        type: string
+      responses: {}
+      summary: 获取用户信息
+      tags:
+      - Account
+swagger: "2.0"
